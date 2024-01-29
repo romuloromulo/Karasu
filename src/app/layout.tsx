@@ -1,9 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Kanit } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/header/navbar";
+import Navbar from "@/components/landing-page/navbar";
+import WppSticker from "@/components/global/wpp-sticker";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Kanit({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,6 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Navbar />
+        <WppSticker />
         {children}
       </body>
     </html>
