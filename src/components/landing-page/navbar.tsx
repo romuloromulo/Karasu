@@ -5,120 +5,104 @@ import React, { useState } from "react";
 import LogoNav from "../../../public/images/logo-navbar.png";
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { FaWhatsapp, FaInstagram } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 function Navbar() {
   const [path, setPath] = useState("/");
+  const [open, setOpen] = useState(false);
+
+  const links: { title: string; href: string; description?: string }[] = [
+    {
+      title: "Home",
+      href: "",
+    },
+    {
+      title: "Sobre nós",
+      href: "#biografia",
+    },
+    { title: "Aulas", href: "#aulas" },
+    { title: "Relatos", href: "#relatos" },
+    { title: "Loja Oficial", href: "/loja" },
+  ];
 
   return (
-    <div className="hidden sm:block">
+    <div className="block mb-16">
       <nav
-        className="backdrop-blur-lg 
+        className={`
   fixed 
   z-50  
   top-0
   w-full
-  flex
-  items-center
-  justify-between
-  py-2
+  sm:flex
+  sm:items-center
+  sm:justify-between
   px-4
-  border-b border-gray-700
-  ">
-        <div>
+  sm:border-b border-gray-700
+  pb-8
+  pt-2
+  sm:pb-1
+  sm:backdrop-blur-lg
+  transition-all  duration-500 ease-in
+${open ? "h-screen sm:h-auto backdrop-blur-lg  " : "h-auto"}
+  `}>
+        <div className="mb-4 sm:mb-0 w-full flex justify-between items-center ">
           <Link href="/">
             <Image src={LogoNav} alt="Karasu Logo" width={100} height={100} />
           </Link>
+          <div
+            className="sm:hidden cursor-pointer text-primary"
+            onClick={() => setOpen(!open)}>
+            {open ? <IoClose size={28} /> : <GiHamburgerMenu size={28} />}
+          </div>
         </div>
-        <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <Link href="/">
-                <NavigationMenuLink
-                  onClick={() => setPath("")}
-                  className={cn(navigationMenuTriggerStyle(), {
-                    "text-white/60": path === "",
-                    "text-white": path !== "",
-                    "font-normal": true,
-                    "text-lg": true,
-                  })}>
-                  Home
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#biografia">
-                <NavigationMenuLink
-                  onClick={() => setPath("#biografia")}
-                  className={cn(navigationMenuTriggerStyle(), {
-                    "text-white/60": path === "#biografia",
-                    "text-white": path !== "#biografia",
-                    "font-normal": true,
-                    "text-lg": true,
-                  })}>
-                  Sobre nós
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#aulas">
-                <NavigationMenuLink
-                  onClick={() => setPath("#aulas")}
-                  className={cn(navigationMenuTriggerStyle(), {
-                    "text-white/60": path === "#aulas",
-                    "text-white": path !== "#aulas",
-                    "font-normal": true,
-                    "text-lg": true,
-                  })}>
-                  Aulas
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <Link href="#relatos">
-                <NavigationMenuLink
-                  onClick={() => setPath("#relatos")}
-                  className={cn(navigationMenuTriggerStyle(), {
-                    "text-white/60": path === "#relatos",
-                    "text-white": path !== "#relatos",
-                    "font-normal": true,
-                    "text-lg": true,
-                  })}>
-                  Relatos
-                </NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem
-              className={cn(navigationMenuTriggerStyle(), {
-                "text-white": true,
-                "text-lg": true,
-              })}>
-              <Link href="/loja">
-                <NavigationMenuLink>Loja Oficial</NavigationMenuLink>
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-        <div className="flex items-center gap-4">
-          <Link href="/" target="_blank">
-            <Button>Contato</Button>
-          </Link>
-          <Link href="/" target="_blank">
-            <div className="bg-primary border-2 border-primary hover:border-white rounded-full p-2 hover:bg-transparent hover:-translate-y-[15%]  duration-300  hover:text-white ease-out">
-              <FaInstagram size={22} />
-            </div>
-          </Link>
+        <div>
+          <NavigationMenu className="flex-col sm:flex-row items-start sm:flex backdrop-blur-lg ">
+            <NavigationMenuList
+              className={`flex flex-col sm:flex-row items-start gap-3 absolute sm:static sm:z-auto z-[-1] left-0 w-full sm:w-auto transition-all  duration-500 ease-in ${
+                open ? "left-1 " : "left-[-950px]"
+              }`}>
+              {links.map((link) => (
+                <NavigationMenuItem>
+                  <Link href={link.href}>
+                    <NavigationMenuLink
+                      onClick={() => setPath("")}
+                      className={cn(navigationMenuTriggerStyle(), {
+                        "text-white/60": path === link.href,
+                        "text-white": path !== link.href,
+                        "font-normal": true,
+                        "text-lg": true,
+                        "bg-transparent": true,
+                      })}>
+                      {link.title}
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+              ))}
+              <div className="flex flex-col-reverse items-start sm:flex-row md:items-center gap-4 pl-4  w-[30rem] sm:w-64 mt-2 sm:mt-0">
+                <Link href="/" target="_blank" className="w-[70%] sm:w-full">
+                  <Button className="w-full text-lg  hover:text-white  border-2 border-primary hover:border-white hover:bg-transparent  duration-300   ">
+                    Contato
+                  </Button>
+                </Link>
+                <Link href="/" target="_blank">
+                  <div className="bg-primary border-2 border-primary hover:border-white rounded-full p-2 hover:bg-transparent hover:-translate-y-[15%]  duration-300  hover:text-white ease-out sm:block flex items-center">
+                    <span className="sm:hidden mr-1">Instagram </span>
+                    {"  "}
+                    <FaInstagram size={22} />
+                  </div>
+                </Link>
+              </div>
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
       </nav>
     </div>
