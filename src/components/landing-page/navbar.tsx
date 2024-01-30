@@ -59,7 +59,7 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
             <Image src={LogoNav} alt="Karasu Logo" width={110} height={100} />
           </Link>
           <div
-            className="sm:hidden cursor-pointer text-primary"
+            className="sm:hidden cursor-pointer text-black bg-primary p-1 "
             onClick={() => setOpen(!open)}>
             {open ? <IoClose size={28} /> : <GiHamburgerMenu size={28} />}
           </div>
@@ -81,15 +81,17 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
                         "font-normal": true,
                         "lg:text-md": true,
                         "md:text-base": true,
-                        "sm:text-sm": true,
-                        "bg-transparent": true,
+                        "text-base": true,
+                        "font-bold": true,
+                        "sm:bg-transparent": true,
+                        "bg-black/30": true,
                       })}>
                       {link.title.toLocaleUpperCase()}
                     </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
               ))}
-              <div className="flex flex-col-reverse items-start sm:flex-row md:items-center gap-4 pl-4  w-[30rem] sm:w-52 md:w-64 mt-2 sm:mt-0">
+              <div className="flex flex-col-reverse items-start sm:flex-row md:items-center gap-4   w-[30rem] sm:w-52 md:w-64 mt-2 sm:mt-0">
                 <Link href="/" target="_blank" className="w-[70%] sm:w-full">
                   <Button className="w-full text-lg  hover:text-white  border-2 border-primary hover:border-white hover:bg-transparent  duration-300   ">
                     Contato

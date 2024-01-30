@@ -1,25 +1,51 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import Boxe from "../../public/images/fotos-luta/box-men2.jpeg";
 import Karasu from "../../public/images/msct-judô.png";
-import Karasu2 from "../../public/images/msct-lifit.png";
+import KarasuLogo from "../../public/images/logo-nome-chumbo-2.png";
 import Typewriter from "typewriter-effect";
 import { v4 } from "uuid";
-import { BsLightningCharge } from "react-icons/bs";
+import Biografia from "@/components/landing-page/biografia";
 
 export default function Home() {
-  const promocional = [
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
-    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+  const promocional: {
+    texto: string;
+    logo: string | StaticImageData;
+    size: number;
+  }[] = [
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 130,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 130,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 130,
+    },
   ];
+
   const typeText = (
     <Typewriter
       options={{ autoStart: true, loop: true, cursor: "" }}
@@ -30,10 +56,10 @@ export default function Home() {
           .deleteChars(3)
           .pauseFor(1500)
           .deleteAll()
-          .typeString(" Jiu jitsu")
+          .typeString(" Jiu Jitsu")
           .pauseFor(1500)
           .deleteAll()
-          .typeString(" Muay thai")
+          .typeString(" Muay Thai")
           .pauseFor(1500)
           .deleteAll()
           .typeString(" Judô")
@@ -60,30 +86,34 @@ export default function Home() {
           className="translate-y-[-100px] sm:translate-y-0 absolute z-[-1]"
         />{" "}
         <div className="absolute inset-0 bg-black opacity-40 z-[-1]"></div>
-        <div className="mt-24 sm:mt-0 w-[70%] ">
-          <h1 className="text-white text-5xl md:text-9xl font-bold whitespace-nowrap italic">
-            Mude sua vida. <br /> Lute por ela.
+        <div className="mt-28 sm:mt-0 w-[70%] ">
+          <h1 className="text-white text-5xl md:text-8xl font-bold whitespace-nowrap italic">
+            MUDE SUA VIDA <br /> APRENDA A LUTAR
           </h1>
-          <p className="text-primary text-lg sm:text-4xl">
+          <p className="text-primary text-lg sm:text-4xl mt-4">
             <span className="font-bold"> Karasu </span>é mais que uma escola de
-            lutas, é um estilo de vida.
+            artes-marciais.
           </p>
-          <p className="text-primary text-lg sm:text-3xl flex text-white font-bold whitespace-nowrap">
+          <p className="text-primary text-lg sm:text-5xl flex text-white font-bold whitespace-nowrap">
             Aulas de&nbsp; {typeText}
           </p>
-          <Button className="text-xl  font-bold py-4  mt-4  border-2 text-black border-primary hover:border-white hover:bg-transparent hover:text-white duration-300 ">
+          <Button className="text-xl  font-bold py-6  mt-4  border-2 text-black border-primary hover:border-white hover:bg-transparent hover:text-white duration-300 ">
             {" "}
             Marque sua aula experimental
           </Button>
         </div>
       </section>
-      <div className="bg-secondary py-2 translate-y-[-20%] overflow-hidden w-full">
+
+      <div
+        id="Slide"
+        className="bg-white translate-y-[-60%] md:translate-y-[-50%] overflow-hidden w-full ">
         {[...Array(1)].map((arr) => (
           <div
             key={arr}
             className="flex
                 flex-nowrap
-                animate-slide
+                animate-slide bg-inherit
+                items-center
           ">
             {promocional.map((promo) => (
               <div
@@ -92,15 +122,15 @@ export default function Home() {
                     shrink-0
                     flex
            items-start
-                    bg-primary
+                bg-white
                   ">
-                <div className="bg-secondary text-black text-2xl text-bold font-bold italic flex items-center">
+                <div className="bg-white text-black text-2xl text-bold font-bold italic flex items-center">
                   {promo.texto.toLocaleUpperCase()}
                   <Image
-                    src={Karasu}
+                    src={promo.logo}
                     alt="Karasu Mascote"
-                    width={110}
-                    height={110}
+                    width={promo.size}
+                    height={promo.size}
                   />
                 </div>
               </div>
@@ -108,6 +138,8 @@ export default function Home() {
           </div>
         ))}
       </div>
+
+      <Biografia />
     </main>
   );
 }
