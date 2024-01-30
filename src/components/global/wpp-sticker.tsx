@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const WppSticker = () => {
   return (
     <Link href="/">
-      <div className="fixed text-black right-0 bottom-0 m-4 bg-primary hover:bg-primary/70 rounded-full p-2">
+      <div className="fixed text-black right-0 bottom-0 m-4 bg-primary hover:bg-primary/70 rounded-full p-2 z-50">
         <FaWhatsapp size={40} />
       </div>
     </Link>

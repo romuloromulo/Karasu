@@ -2,9 +2,24 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Boxe from "../../public/images/fotos-luta/box-men2.jpeg";
+import Karasu from "../../public/images/msct-judô.png";
+import Karasu2 from "../../public/images/msct-lifit.png";
 import Typewriter from "typewriter-effect";
+import { v4 } from "uuid";
+import { BsLightningCharge } from "react-icons/bs";
 
 export default function Home() {
+  const promocional = [
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+    { texto: "Fale conosco agora e ganhe uma aula experimental" },
+  ];
   const typeText = (
     <Typewriter
       options={{ autoStart: true, loop: true, cursor: "" }}
@@ -31,8 +46,10 @@ export default function Home() {
     />
   );
   return (
-    <main className="container mx-auto">
-      <section id="homePage" className="pt-4 flex min-h-screen sm:items-center">
+    <main className="">
+      <section
+        id="homePage"
+        className="pt-4 flex min-h-screen sm:items-center container mx-auto">
         <Image
           alt="Lutador de boxe"
           src={Boxe}
@@ -60,6 +77,37 @@ export default function Home() {
           </Button>
         </div>
       </section>
+      <div className="bg-secondary py-2 translate-y-[-20%] overflow-hidden w-full">
+        {[...Array(1)].map((arr) => (
+          <div
+            key={arr}
+            className="flex
+                flex-nowrap
+                animate-slide
+          ">
+            {promocional.map((promo) => (
+              <div
+                key={v4()}
+                className="relative
+                    shrink-0
+                    flex
+           items-start
+                    bg-primary
+                  ">
+                <div className="bg-secondary text-black text-2xl text-bold font-bold italic flex items-center">
+                  {promo.texto.toLocaleUpperCase()}
+                  <Image
+                    src={Karasu}
+                    alt="Karasu Mascote"
+                    width={110}
+                    height={110}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </main>
   );
 }
