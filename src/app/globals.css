@@ -59,7 +59,7 @@
 }
 
 .animate-slide {
-  animation: 15s slide linear infinite;
+  animation: 10s slide linear infinite;
 }
 
 @keyframes slide {

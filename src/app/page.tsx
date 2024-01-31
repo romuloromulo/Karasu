@@ -86,8 +86,8 @@ export default function Home() {
           className="translate-y-[-100px] sm:translate-y-0 absolute z-[-1]"
         />{" "}
         <div className="absolute inset-0 bg-black opacity-40 z-[-1]"></div>
-        <div className="mt-28 sm:mt-0 w-[70%] ">
-          <h1 className="text-white text-5xl md:text-8xl font-bold whitespace-nowrap italic">
+        <div className="mt-40 sm:mt-0 w-[70%] ">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold whitespace-nowrap italic">
             MUDE SUA VIDA <br /> APRENDA A LUTAR
           </h1>
           <p className="text-primary text-lg sm:text-4xl mt-4">
