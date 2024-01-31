@@ -7,6 +7,7 @@ import KarasuLogo from "../../public/images/logo-nome-chumbo-2.png";
 import Typewriter from "typewriter-effect";
 import { v4 } from "uuid";
 import Biografia from "@/components/landing-page/biografia";
+import Aulas from "@/components/landing-page/aulas";
 
 export default function Home() {
   const promocional: {
@@ -22,7 +23,7 @@ export default function Home() {
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
       logo: KarasuLogo,
-      size: 130,
+      size: 160,
     },
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
@@ -32,7 +33,7 @@ export default function Home() {
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
       logo: KarasuLogo,
-      size: 130,
+      size: 160,
     },
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
@@ -42,7 +43,7 @@ export default function Home() {
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
       logo: KarasuLogo,
-      size: 130,
+      size: 160,
     },
   ];
 
@@ -140,6 +141,7 @@ export default function Home() {
       </div>
 
       <Biografia />
+      <Aulas />
     </main>
   );
 }

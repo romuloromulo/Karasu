@@ -70,8 +70,8 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
               className={`flex flex-col sm:flex-row items-start sm:items-center gap-3 absolute sm:static sm:z-auto z-[-1] left-0 w-full sm:w-auto transition-all  duration-500 ease-in ${
                 open ? "left-1 " : "left-[-950px]"
               }`}>
-              {links.map((link) => (
-                <NavigationMenuItem>
+              {links.map((link, index) => (
+                <NavigationMenuItem key={index}>
                   <Link href={link.href} legacyBehavior passHref>
                     <NavigationMenuLink
                       onClick={() => setPath("")}
