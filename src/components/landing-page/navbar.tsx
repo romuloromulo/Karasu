@@ -56,7 +56,13 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
   `}>
         <div className="mb-4 sm:mb-0 w-full flex justify-between items-center ">
           <Link href="/">
-            <Image src={LogoNav} alt="Karasu Logo" width={110} height={100} />
+            <Image
+              src={LogoNav}
+              alt="Karasu Logo"
+              width={110}
+              height={100}
+              className="w-full h-auto"
+            />
           </Link>
           <div
             className="sm:hidden cursor-pointer text-black bg-primary p-1 "

@@ -3,11 +3,15 @@ import { Button } from "@/components/ui/button";
 import Image, { StaticImageData } from "next/image";
 import Boxe from "../../public/images/fotos-luta/box-men2.jpeg";
 import Karasu from "../../public/images/msct-judô.png";
+import Karasu2 from "../../public/images/msct-lifit.png";
+import Karasu3 from "../../public/images/msct-muaythai.png";
 import KarasuLogo from "../../public/images/logo-nome-chumbo-2.png";
 import Typewriter from "typewriter-effect";
 import { v4 } from "uuid";
 import Biografia from "@/components/landing-page/biografia";
 import Aulas from "@/components/landing-page/aulas";
+import React from "react";
+import Relatos from "@/components/landing-page/relatos";
 
 export default function Home() {
   const promocional: {
@@ -27,7 +31,17 @@ export default function Home() {
     },
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
-      logo: Karasu,
+      logo: Karasu2,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 160,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu3,
       size: 120,
     },
     {
@@ -38,6 +52,26 @@ export default function Home() {
     {
       texto: "Fale conosco agora e ganhe uma aula experimental",
       logo: Karasu,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 160,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu2,
+      size: 120,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: KarasuLogo,
+      size: 160,
+    },
+    {
+      texto: "Fale conosco agora e ganhe uma aula experimental",
+      logo: Karasu3,
       size: 120,
     },
     {
@@ -83,8 +117,8 @@ export default function Home() {
           placeholder="blur"
           quality={100}
           fill
-          objectFit="cover"
-          className="translate-y-[-100px] sm:translate-y-0 absolute z-[-1]"
+          style={{ objectFit: "cover" }}
+          className="translate-y-[-100px] w-full h-auto sm:translate-y-0 absolute z-[-1]"
         />{" "}
         <div className="absolute inset-0 bg-black opacity-40 z-[-1]"></div>
         <div className="mt-40 sm:mt-0 w-[70%] ">
@@ -95,9 +129,9 @@ export default function Home() {
             <span className="font-bold"> Karasu </span>é mais que uma escola de
             artes-marciais.
           </p>
-          <p className="text-primary text-lg sm:text-5xl flex text-white font-bold whitespace-nowrap">
+          <div className="text-primary text-lg sm:text-5xl flex text-white font-bold whitespace-nowrap">
             Aulas de&nbsp; {typeText}
-          </p>
+          </div>
           <Button className="text-xl  font-bold py-6  mt-4  border-2 text-black border-primary hover:border-white hover:bg-transparent hover:text-white duration-300 ">
             {" "}
             Marque sua aula experimental
@@ -108,40 +142,36 @@ export default function Home() {
       <div
         id="Slide"
         className="bg-white translate-y-[-60%] md:translate-y-[-50%] overflow-hidden w-full ">
-        {[...Array(1)].map((arr) => (
-          <div
-            key={arr}
-            className="flex
-                flex-nowrap
-                animate-slide bg-inherit
-                items-center
-          ">
-            {promocional.map((promo) => (
-              <div
-                key={v4()}
-                className="relative
-                    shrink-0
-                    flex
-           items-start
-                bg-white
-                  ">
-                <div className="bg-white text-black text-2xl text-bold font-bold italic flex items-center">
-                  {promo.texto.toLocaleUpperCase()}
-                  <Image
-                    src={promo.logo}
-                    alt="Karasu Mascote"
-                    width={promo.size}
-                    height={promo.size}
-                  />
-                </div>
+        <div className="flex flex-nowrap items-center">
+          {[...Array(1)].map((arr, index) => (
+            <div
+              key={v4()}
+              className="relative shrink-0 flex items-start bg-white animate-slide"
+              style={{
+                animationDelay: `-${(promocional.length - index) * 2}s`,
+              }}>
+              <div className="bg-white text-black text-2xl font-bold italic flex items-center">
+                {promocional.map((promo) => (
+                  <React.Fragment key={v4()}>
+                    {promo.texto.toLocaleUpperCase()}
+                    <Image
+                      src={promo.logo}
+                      alt="Karasu Mascote"
+                      width={promo.size}
+                      height={promo.size}
+                      key={v4()}
+                    />
+                  </React.Fragment>
+                ))}
               </div>
-            ))}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
 
       <Biografia />
       <Aulas />
+      <Relatos />
     </main>
   );
 }

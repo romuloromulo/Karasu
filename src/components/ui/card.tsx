@@ -37,12 +37,12 @@ const Card = ({ aulas }: CardProps) => {
           </tbody>
         </table>
       </div>
-      <Button className='z-20 mt-4'>Marque uma aula!</Button>
+      <Button className="z-20 mt-4">Marque uma aula!</Button>
       <Image
         alt="Luta ensinada"
         src={aulas.imagem}
-        layout="fill"
-        objectFit="cover"
+        fill
+        style={{ objectFit: "cover" }}
         className="grayscale transform transition-transform duration-300 group-hover:scale-110"
         placeholder="blur"
       />
