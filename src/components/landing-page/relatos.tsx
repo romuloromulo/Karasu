@@ -39,7 +39,7 @@ const Relatos = () => {
               </div>
             </CarouselItem>
             <CarouselItem
-              key="1"
+              key="2"
               className="flex flex-col md:flex-row justify-center items-center gap-8">
               <div className="sm:w-1/2 overflow-hidden rounded-full ">
                 <Image alt="Foto Aluno" src={Aluno1} />
@@ -59,11 +59,6 @@ const Relatos = () => {
           <CarouselPrevious className="bg-primary border-black  " />
           <CarouselNext className="bg-primary border-black" />
         </Carousel>
-        {/* <Carousel className="w-4/5 flex items-center justify-center">
-          <CarouselContent></CarouselContent>
-          <CarouselPrevious className="bg-primary border-black" />
-          <CarouselNext className="bg-primary border-black" />
-        </Carousel> */}
       </div>
     </section>
   );

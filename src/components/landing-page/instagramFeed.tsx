@@ -1,5 +1,15 @@
+"use client";
 import axios from "axios";
-import { useEffect } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
+import { Button } from "../ui/button";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import Link from "next/link";
 
 // Defina um tipo para os dados da resposta da API
 interface InstagramPhoto {
@@ -12,58 +22,74 @@ interface InstagramPhoto {
   timestamp: string;
 }
 
-const InstagramFeed = async () => {
-  // const response = await axios.get(
-  //   `https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=${process.env.TOKEN_ACESSO}`
-  // );
-  // console.log(response);
-  // // const [photos, setPhotos] = useState<InstagramPhoto[]>([]);
+const InstagramFeed = () => {
+  const [photos, setPhotos] = useState<InstagramPhoto[]>([]);
+  const [showAllPhotos, setShowAllPhotos] = useState(false);
 
-  // console.log(photos);
-  const teste = async () => {
-    const response = await fetch(`/api/instagramfeedapi`);
-    const foto = await response.json();
-    console.log(foto);
-  };
   useEffect(() => {
-    teste();
-  }, []);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await fetch("/api/instagramfeedapi");
-  //       const data = await response.json();
-  //       setPhotos(data);
-  //     } catch (error) {
-  //       console.error("Error fetching Instagram photos:", error);
-  //     }
-  //   };
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/instagramfeedapi");
+        const data = await response.json();
+        setPhotos(data);
+      } catch (error) {
+        console.error("Error fetching Instagram photos:", error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
+  console.log(photos);
+  // Obtenha apenas as últimas 9 fotos ou todas, dependendo do estado do botão
+  const displayedPhotos = showAllPhotos ? photos : photos.slice(0, 9);
 
   return (
     <div className="h-screen w-full">
       <h2>Instagram Feed</h2>
-      {/* <div>
-        {photos.map((photo) => (
-          <div key={photo.id}>
-            <img
-              src={photo.media_url}
-              alt={photo.caption}
-              className="w-1/2 h-2/5"
-            />
-          </div>
-        ))} */}
+      <div className="grid-cols-3 gap-8 grid">
+        {displayedPhotos.map((photo) => {
+          if (
+            photo.media_url.includes("mp4") ||
+            photo.media_url.includes("m69")
+          )
+            return;
+          return (
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Link href={photo.permalink}>
+                    <div
+                      key={photo.id}
+                      className="w-[15rem] rounded-lg h-[15rem] overflow-hidden">
+                      <Image
+                        src={photo.media_url}
+                        alt={photo.caption}
+                        width={500}
+                        height={500}
+                      />
+                    </div>
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>{photo.caption}</TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
+          );
+        })}
+      </div>
+      <div className="w-full justify-center flex mt-8">
+        {!showAllPhotos && (
+          <Button onClick={() => setShowAllPhotos(true)} className="mx-auto">
+            Mostrar Mais
+          </Button>
+        )}
+        {showAllPhotos && (
+          <Button onClick={() => setShowAllPhotos(false)} className="mx-auto">
+            Mostrar Menos
+          </Button>
+        )}
+      </div>
     </div>
   );
 };
 
 export default InstagramFeed;
-
-export const getStaticProps = async () => {
-  const url = `https://graph.instagram.com/me/media?fields=id,caption,media_url,timestamp,permalink&access_token=${process.env.TOKEN_ACESSO}`;
-  const data = await fetch(url);
-  const feed = await data.json();
-  console.log(feed);
-};
