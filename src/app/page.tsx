@@ -12,6 +12,7 @@ import Biografia from "@/components/landing-page/biografia";
 import Aulas from "@/components/landing-page/aulas";
 import React from "react";
 import Relatos from "@/components/landing-page/relatos";
+import InstagramFeed from "@/components/landing-page/instagramfeed";
 
 export default function Home() {
   const promocional: {
@@ -122,7 +123,7 @@ export default function Home() {
         />{" "}
         <div className="absolute inset-0 bg-black opacity-40 z-[-1]"></div>
         <div className="mt-40 sm:mt-0 w-[70%] ">
-          <h1 className="text-white text-4xl sm:text-5xl md:text-8xl font-bold whitespace-nowrap italic">
+          <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-bold whitespace-nowrap italic">
             MUDE SUA VIDA <br /> APRENDA A LUTAR
           </h1>
           <p className="text-primary text-lg sm:text-4xl mt-4">
@@ -172,6 +173,7 @@ export default function Home() {
       <Biografia />
       <Aulas />
       <Relatos />
+      <InstagramFeed />
     </main>
   );
 }
