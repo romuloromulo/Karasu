@@ -12,7 +12,7 @@ import Biografia from "@/components/landing-page/biografia";
 import Aulas from "@/components/landing-page/aulas";
 import React from "react";
 import Relatos from "@/components/landing-page/relatos";
-import InstagramFeed from "@/components/landing-page/instagramfeed";
+import InstagramFeed from "@/components/landing-page/instagramFeed";
 
 export default function Home() {
   const promocional: {
