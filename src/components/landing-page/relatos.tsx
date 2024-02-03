@@ -12,7 +12,7 @@ import Aluno1 from "../../../public/images/fotos-luta/aluna1.jpeg";
 const Relatos = () => {
   return (
     <section className="mx-auto container bg-slate-900/10 my-8">
-      <div className="w-full flex flex-col items-center justify-center mb-12">
+      <div className="w-full flex flex-col items-center justify-center mb-12  mt-20">
         <p className="text-primary/90 text-sm text-center">RELATOS DE ALUNOS</p>
         <h1 className="text-2xl sm:text-3xl md:text-5xl  text-white font-bold  text-center ">
           O que nossos alunos dizem?

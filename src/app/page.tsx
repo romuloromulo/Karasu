@@ -12,6 +12,7 @@ import Biografia from "@/components/landing-page/biografia";
 import Aulas from "@/components/landing-page/aulas";
 import React from "react";
 import Relatos from "@/components/landing-page/relatos";
+import Footer from "@/components/landing-page/footer";
 import InstagramFeed from "@/components/landing-page/instagramFeed";
 
 export default function Home() {
@@ -174,6 +175,7 @@ export default function Home() {
       <Aulas />
       <Relatos />
       <InstagramFeed />
+      <Footer />
     </main>
   );
 }
