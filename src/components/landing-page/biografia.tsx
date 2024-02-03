@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Kickboxing from "../../../public/images/fotos-luta/kick-boxing-6.jpeg";
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 const Biografia = () => {
   const beneficios = [
@@ -44,8 +45,10 @@ const Biografia = () => {
           <div>
             <ul className="grid grid-cols-2 gap-2 mt-6 text-white text-lg">
               {beneficios.map((b, index) => (
-                <li className="mb-4" key={index}>
-                  <span className="text-primary mr-2">&#8594;</span>
+                <li className="mb-4 flex items-center" key={index}>
+                  <span className="text-primary mr-2">
+                    <FaLongArrowAltRight size={18} />
+                  </span>
                   {b}
                 </li>
               ))}
