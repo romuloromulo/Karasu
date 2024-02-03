@@ -174,7 +174,7 @@ export default function Home() {
       <Biografia />
       <Aulas />
       <Relatos />
-      <InstagramFeed />
+      {/* <InstagramFeed /> */}
       <Footer />
     </main>
   );
