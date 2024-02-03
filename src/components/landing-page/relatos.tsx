@@ -28,9 +28,10 @@ const Relatos = () => {
                 <Image alt="Foto Aluno" src={Aluno1} />
               </div>
               <div className="md:w-1/2 text-white text-base md:text-xl text-thing italic font-sans">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris&quot;
                 <p
                   className="text-white text-right text-sm
                 ">
@@ -45,9 +46,10 @@ const Relatos = () => {
                 <Image alt="Foto Aluno" src={Aluno1} />
               </div>
               <div className="md:w-1/2 text-white text-base md:text-xl text-thing italic font-sans">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris"
+                &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                sed do eiusmod tempor incididunt ut labore et dolore magna
+                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                ullamco laboris&quot;
                 <p
                   className="text-white text-right text-sm
                 ">
