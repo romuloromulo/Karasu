@@ -30,15 +30,12 @@ const InstagramFeed = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch("/api/instagramfeedapi");
-        const data = await response.json();
-        setPhotos(data);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching Instagram photos:", error);
-        setLoading(false);
-      }
+      const response = await fetch("/api/instagramfeedapi");
+      const data = await response.json();
+      setPhotos(data);
+      setLoading(false);
+      // console.error("Error fetching Instagram photos:", error);
+      setLoading(false);
     };
 
     fetchData();
