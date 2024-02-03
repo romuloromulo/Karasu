@@ -65,7 +65,7 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
             />
           </Link>
           <div
-            className="sm:hidden cursor-pointer text-black bg-primary p-1 "
+            className="sm:hidden cursor-pointer text-black bg-primary p-1 rounded-lg"
             onClick={() => setOpen(!open)}>
             {open ? <IoClose size={28} /> : <GiHamburgerMenu size={28} />}
           </div>
@@ -104,7 +104,7 @@ ${open ? "h-screen sm:h-auto backdrop-blur-lg" : "h-auto"}
                   </Button>
                 </Link>
                 <Link href="/" target="_blank">
-                  <div className="bg-primary border-2 border-primary hover:border-white rounded-full p-2 hover:bg-transparent hover:-translate-y-[15%] duration-300  hover:text-white ease-out sm:block flex items-center">
+                  <div className="bg-primary border-2 border-primary hover:border-white rounded-xl p-2 hover:bg-transparent hover:-translate-y-[15%] duration-300  hover:text-white ease-out sm:block flex items-center">
                     <span className="sm:hidden mr-1">Instagram </span>
                     {"  "}
                     <FaInstagram size={22} />

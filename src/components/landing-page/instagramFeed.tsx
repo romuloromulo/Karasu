@@ -47,8 +47,10 @@ const InstagramFeed = () => {
   const displayedPhotos = showAllPhotos ? photos : photos.slice(0, 9);
 
   return (
-    <section id="instagram" className="min-h-screen container mx-auto block">
-      <div className="w-full flex flex-col justify-center tex-center mt-24">
+    <section
+      id="instagram"
+      className="min-h-screen container mx-auto  flex flex-col justify-center">
+      <div className="w-full  tex-center mt-24">
         <p className="text-primary/90 text-sm text-center">NOSSO ESPAÇO</p>
         <h2 className="text-white text-4xl font-bold mb-12 mt-2 text-center">
           CONHEÇA UM POUCO MAIS DA NOSSA ACADEMIA
