@@ -28,18 +28,18 @@ const InstagramFeed = () => {
   const [showAllPhotos, setShowAllPhotos] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("/api/instagramfeedapi");
-      const data = await response.json();
-      setPhotos(data);
-      setLoading(false);
-      // console.error("Error fetching Instagram photos:", error);
-      setLoading(false);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const response = await fetch("/api/instagramfeedapi");
+  //     const data = await response.json();
+  //     setPhotos(data);
+  //     setLoading(false);
+  //     // console.error("Error fetching Instagram photos:", error);
+  //     setLoading(false);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   const displayedPhotos = showAllPhotos ? photos : photos.slice(0, 9);
 
