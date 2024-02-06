@@ -25,7 +25,7 @@ const InstagramFeed = () => {
       <div className="flex justify-center">
         <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-4 items-center justify-center">
           {instagramLinks.map((links) => (
-            <div className="shadow-lg shadow-gray-900">
+            <div className="shadow-lg shadow-gray-900" key={links}>
               <InstagramEmbed url={links} width={328} />
             </div>
           ))}
