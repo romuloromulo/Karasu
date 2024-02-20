@@ -108,7 +108,7 @@ export default function Home() {
       }}
     />
   );
-  
+
   return (
     <main className="">
       <section
@@ -141,7 +141,7 @@ export default function Home() {
           </Button>
         </div>
       </section>
-
+      {/* 
       <div
         id="Slide"
         className="bg-white translate-y-[-60%] md:translate-y-[-50%] overflow-hidden w-full ">
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
 
       <Biografia />
       <Aulas />
