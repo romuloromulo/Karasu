@@ -7,7 +7,6 @@ import Karasu2 from "../../public/images/msct-lifit.png";
 import Karasu3 from "../../public/images/msct-muaythai.png";
 import KarasuLogo from "../../public/images/logo-nome-chumbo-2.png";
 import Typewriter from "typewriter-effect";
-import { v4 } from "uuid";
 import Biografia from "@/components/landing-page/biografia";
 import Aulas from "@/components/landing-page/aulas";
 import React from "react";
