@@ -136,40 +136,10 @@ export default function Home() {
           </div>
           <Button className="text-xl  font-bold py-6  mt-4  border-2 text-black border-primary hover:border-white hover:bg-transparent hover:text-white duration-300 ">
             {" "}
-            Marque sua aula experimental
+            Marque sua aula experimental!
           </Button>
         </div>
       </section>
-      {/* 
-      <div
-        id="Slide"
-        className="bg-white translate-y-[-60%] md:translate-y-[-50%] overflow-hidden w-full ">
-        <div className="flex flex-nowrap items-center">
-          {[...Array(1)].map((arr, index) => (
-            <div
-              key={v4()}
-              className="relative shrink-0 flex items-start bg-white animate-slide"
-              style={{
-                animationDelay: `-${(promocional.length - index) * 2}s`,
-              }}>
-              <div className="bg-white text-black text-2xl font-bold italic flex items-center">
-                {promocional.map((promo) => (
-                  <React.Fragment key={v4()}>
-                    {promo.texto.toLocaleUpperCase()}
-                    <Image
-                      src={promo.logo}
-                      alt="Karasu Mascote"
-                      width={promo.size}
-                      height={promo.size}
-                      key={v4()}
-                    />
-                  </React.Fragment>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div> */}
 
       <Biografia />
       <Aulas />
